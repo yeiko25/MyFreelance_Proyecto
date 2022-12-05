@@ -1,4 +1,4 @@
-package com.example.proyecto.ui.dashboard
+package com.example.proyecto.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.proyecto.databinding.FragmentDashboardBinding
+import com.example.proyecto.databinding.FragmentSearchBinding
 import com.example.proyecto.viewmodel.DashboardViewModel
 
-class DashboardFragment : Fragment() {
+class SearchFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -26,13 +23,13 @@ class DashboardFragment : Fragment() {
         val dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+     //   val textView: TextView = binding.textSearch
+      //  dashboardViewModel.text.observe(viewLifecycleOwner) {
+      //      textView.text = it
+      //  }
         return root
     }
 
