@@ -27,4 +27,9 @@
         android:name="com.example.proyecto.ui.home.AddServicioFragment"
         android:label="fragment_add_servicio"
         tools:layout="@layout/fragment_add_servicio" />
+    <fragment
+        android:id="@+id/contactarFragment"
+        android:name="com.example.proyecto.ui.home.ContactarFragment"
+        android:label="fragment_contactar"
+        tools:layout="@layout/fragment_contactar" />
 </navigation>
