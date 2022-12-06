@@ -16,4 +16,5 @@
     <string name="cel">Teléfono</string>
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
+    <string name="msg_user_added">Registro exitoso!</string>
 </resources>

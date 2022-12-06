@@ -1,5 +1,5 @@
 package com.example.proyecto.model
-/*
+
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -15,7 +15,7 @@ data class User(
     val clave: String?
 ) : Parcelable{
     constructor():
-            this("","","","","","","")
+            this("","","","","","","","")
 }
 
-*/
+
