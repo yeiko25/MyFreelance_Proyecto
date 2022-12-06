@@ -16,4 +16,6 @@
     <string name="cel">Teléfono</string>
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

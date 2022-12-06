@@ -22,4 +22,9 @@
         android:name="com.example.proyecto.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/addServicioFragment"
+        android:name="com.example.proyecto.ui.home.AddServicioFragment"
+        android:label="fragment_add_servicio"
+        tools:layout="@layout/fragment_add_servicio" />
 </navigation>
