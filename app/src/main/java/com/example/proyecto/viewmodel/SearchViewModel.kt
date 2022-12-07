@@ -1,12 +1,29 @@
 package com.example.proyecto.viewmodel
 
-import androidx.lifecycle.LiveData
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.proyecto.data.ServiceDao
+import com.example.proyecto.model.Service
+import com.example.proyecto.repository.ServiceRepository
 
-class SearchViewModel : ViewModel() {
+class SearchViewModel(application: Application) : AndroidViewModel(application) {
+    val getServices : MutableLiveData<List<Service>>
+    private val repository: ServiceRepository = ServiceRepository(ServiceDao())
 
-    private val _text = MutableLiveData<String>().apply {
+    init {
+        getServices = repository.getServices
     }
-    val text: LiveData<String> = _text
+
+    fun saveService(service: Service) {
+        repository.saveService(service)
+    }
+
+    fun deleteService(service: Service) {
+        repository.deleteService(service)
+    }
+
+    /*private val _text = MutableLiveData<String>().apply {
+    }
+    val text: LiveData<String> = _text*/
 }

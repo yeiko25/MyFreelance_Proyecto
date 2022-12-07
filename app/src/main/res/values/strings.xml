@@ -16,5 +16,12 @@
     <string name="cel">Teléfono</string>
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
+    <string name="et_titulo">Título del Servicio</string>
+    <string name="et_descripcion">Descripción del servicio</string>
+    <string name="et_precio">Precio del servicio</string>
+    <string name="et_categoria">Categoría</string>
+    <string name="bt_publicar">Publicar servicio</string>
     <string name="msg_user_added">Registro exitoso!</string>
+    <string name="msg_error">Revisar los datos </string>
+    <string name="msg_agregaServicio">Servicio agregado </string>
 </resources>

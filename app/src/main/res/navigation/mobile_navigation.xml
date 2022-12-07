@@ -15,7 +15,11 @@
         android:id="@+id/navigation_search"
         android:name="com.example.proyecto.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_addServicioFragment"
+            app:destination="@id/addServicioFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_account"
@@ -31,4 +35,13 @@
         android:name="com.example.proyecto.Login"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/addServicioFragment"
+        android:name="com.example.proyecto.ui.home.AddServicioFragment"
+        android:label="fragment_add_servicio"
+        tools:layout="@layout/fragment_add_servicio" >
+        <action
+            android:id="@+id/action_addServicioFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>
