@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#3F51B5"
     android:orientation="vertical"
     tools:context=".ui.account.AccountFragment">
 
@@ -21,8 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:drawableTint="#FFFFFF"
             android:ems="10"
             android:hint="@string/nombre"
@@ -35,11 +36,12 @@
             android:id="@+id/apellido_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/apellido"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textStyle="bold" />
@@ -58,23 +60,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/cel"
             android:inputType="phone"
+            android:minHeight="48dp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/usuario_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/user"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -89,13 +95,15 @@
 
         <EditText
             android:id="@+id/direccion_up"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/direccion"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -112,23 +120,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/correo"
             android:inputType="textEmailAddress"
+            android:minHeight="48dp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/clave_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/clave"
             android:inputType="textPassword"
+            android:minHeight="48dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -142,12 +154,12 @@
 
         <Button
             android:id="@+id/bt_update_user"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:background="@drawable/button_style3"
-            android:text="Actualizar datos"
+            android:text="@string/actualizar_datos"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
@@ -164,7 +176,7 @@
 
         <Button
             android:id="@+id/bt_logoff"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_weight="1"

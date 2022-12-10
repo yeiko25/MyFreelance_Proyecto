@@ -10,13 +10,13 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.ktx.Firebase
 
 class ServiceDao {
-    private var serviceId: String
+    private var codigoUsuario: String
     private var firestore: FirebaseFirestore
 
 
     init {
-        val service = Firebase.auth.currentUser?.email
-        serviceId = "$service"
+        val usuario = Firebase.auth.currentUser?.email
+        codigoUsuario = "$usuario"
         firestore = FirebaseFirestore.getInstance()
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
@@ -55,12 +55,14 @@ class ServiceDao {
     }
 
     fun deleteService(service: Service){
+        val id = firestore.collection("Services").document().id
+
         if(service.id.isNotEmpty()){
             firestore.
             collection("Services").
-            document(serviceId).
+            document(id).
             collection("ServicesMyFreelance").
-            document(serviceId).
+            document(service.id).
             delete()
                 .addOnCompleteListener {
                     Log.d("deleteService","Eliminado con exito")
@@ -73,10 +75,10 @@ class ServiceDao {
     }
 
     fun getServices() : MutableLiveData<List<Service>> {
+        val id = firestore.collection("Services").document().id
         val listServices = MutableLiveData<List<Service>>()
         firestore.
-        collection("Services").
-        document(serviceId).
+        collection("Services").document(id).
         collection("ServicesMyFreelance").
         addSnapshotListener{snapshot, e ->
             if(e != null){
@@ -92,14 +94,12 @@ class ServiceDao {
                     }
                 }
                 listServices.value = list
+
             }
+
         }
         return listServices
     }
 
-    fun GetDocId(){
-
-
-    }
 
 }

@@ -23,7 +23,4 @@ class SearchViewModel(application: Application) : AndroidViewModel(application) 
         repository.deleteService(service)
     }
 
-    /*private val _text = MutableLiveData<String>().apply {
-    }
-    val text: LiveData<String> = _text*/
 }

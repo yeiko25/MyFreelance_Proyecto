@@ -24,4 +24,16 @@
     <string name="msg_user_added">Registro exitoso!</string>
     <string name="msg_error">Revisar los datos </string>
     <string name="msg_agregaServicio">Servicio agregado </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Titulo">Titulo</string>
+    <string name="Precio">Precio</string>
+    <string name="todo">TODO</string>
+    <string name="Add">Agregar</string>
+    <string name="contacto">Contacto</string>
+    <string name="escribe_tu_mensaje">Escribe tu mensaje ...</string>
+    <string name="enviar">Enviar</string>
+    <string name="imagen">imagen</string>
+    <string name="actualizar_datos">Actualizar datos</string>
+    <string name="msg_user_updated">Los datos fueron actualizados!</string>
 </resources>

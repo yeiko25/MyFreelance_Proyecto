@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_navigation_search_to_addServicioFragment"
             app:destination="@id/addServicioFragment" />
+        <action
+            android:id="@+id/action_navigation_search_to_serviceDetail2"
+            app:destination="@id/serviceDetail" />
     </fragment>
 
     <fragment
@@ -26,6 +29,8 @@
         android:name="com.example.proyecto.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" >
+        <argument android:name="user"
+            app:argType="com.example.proyecto.model.User"/>
         <action
             android:id="@+id/action_navigation_account_to_login"
             app:destination="@id/login" />
@@ -41,7 +46,16 @@
         android:label="fragment_add_servicio"
         tools:layout="@layout/fragment_add_servicio" >
         <action
-            android:id="@+id/action_addServicioFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            android:id="@+id/action_addServicioFragment_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceDetail"
+        android:name="com.example.proyecto.ServiceDetail"
+        android:label="fragment_service_detail"
+        tools:layout="@layout/fragment_service_detail" >
+        <action
+            android:id="@+id/action_serviceDetail_to_navigation_search"
+            app:destination="@id/navigation_search" />
     </fragment>
 </navigation>

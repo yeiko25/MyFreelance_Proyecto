@@ -97,9 +97,5 @@ class UserDao {
         return listaUsuarios
     }
 
-    fun GetDocId(){
-
-
-       }
 
 }

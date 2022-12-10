@@ -22,7 +22,7 @@ class AddServicioFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         serviceViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
         _binding = FragmentAddServicioBinding.inflate(inflater, container, false)
 
@@ -31,19 +31,19 @@ class AddServicioFragment : Fragment() {
 
         //return inflater.inflate(R.layout.fragment_add_servicio, container, false)
 
+
     }
     private fun publicarServicio(){
-        val titulo = binding.etTitulo.text.toString()
-        val descripcion = binding.etDescripcion.text.toString()
-        val precio = binding.etPrecio.text.toString()
-        val categoria = binding.etCategoria.text.toString()
+        val titulo = binding.etTitulo.text.toString().trim()
+        val descripcion = binding.etDescripcion.text.toString().trim()
+        val precio = binding.etPrecio.text.toString().trim()
+        val categoria = binding.etCategoria.text.toString().trim()
 
         if(titulo.isNotEmpty()){
-            //Proceso de agregar a base de datos
             val service = Service("", titulo, descripcion, precio, categoria)
             serviceViewModel.saveService(service)
             Toast.makeText(requireContext(), getString(R.string.msg_agregaServicio), Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_addServicioFragment_to_navigation_home)
+            findNavController().navigate(R.id.action_addServicioFragment_to_navigation_search)
         }
         else{
             Toast.makeText(requireContext(), getString(R.string.msg_error), Toast.LENGTH_LONG).show()
