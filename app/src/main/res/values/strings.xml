@@ -37,4 +37,6 @@
     <string name="actualizar_datos">Actualizar datos</string>
     <string name="msg_user_updated">Los datos fueron actualizados!</string>
     <string name="atras">Atrás</string>
+    <string name="msg_servicio_updated">La publicación fue actualizada!</string>
+    <string name="msg_data">Error</string>
 </resources>

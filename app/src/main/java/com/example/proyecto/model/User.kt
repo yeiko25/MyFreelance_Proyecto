@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.android.gms.tasks.Task
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

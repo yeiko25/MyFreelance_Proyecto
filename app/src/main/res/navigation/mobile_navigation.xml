@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_search"
             app:destination="@id/navigation_search" />
+        <action
+            android:id="@+id/action_navigation_home_to_serviceDetail"
+            app:destination="@id/serviceDetail" />
+        <action
+            android:id="@+id/action_navigation_home_to_updateServicee"
+            app:destination="@id/updateServicee" />
     </fragment>
 
     <fragment
@@ -79,8 +85,12 @@
             android:id="@+id/action_serviceDetail_to_reporteFragment"
             app:destination="@id/reporteFragment" />
 
-        <argument android:name="Service"
+        <argument android:name="service"
             app:argType="com.example.proyecto.model.Service"/>
+        <action
+            android:id="@+id/action_serviceDetail_to_navigation_home"
+            app:destination="@id/navigation_home" />
+
 
     </fragment>
     <fragment
@@ -101,4 +111,20 @@
             android:id="@+id/action_contactarFragment_to_serviceDetail"
             app:destination="@id/serviceDetail" />
     </fragment>
+
+    <fragment
+        android:id="@+id/updateServicee"
+        android:name="com.example.proyecto.ui.home.UpdateService"
+        android:label="fragment_update_servicee"
+        tools:layout="@layout/fragment_update_servicee">
+        <action
+            android:id="@+id/action_updateServicee_to_navigation_home"
+            app:destination="@id/navigation_home" />
+
+        <argument android:name="service"
+            app:argType="com.example.proyecto.model.Service"/>
+    </fragment>
+
+
+
 </navigation>

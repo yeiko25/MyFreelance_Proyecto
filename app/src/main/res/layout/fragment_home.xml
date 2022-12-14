@@ -8,6 +8,19 @@
     android:padding="15dp"
     tools:context=".ui.home.HomeFragment">
 
+    <TextView
+        android:id="@+id/publicaciones"
+        android:layout_width="140dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="56dp"
+        android:text="Mis publicaciones"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBuscar" />
+
     <SearchView
         android:id="@+id/txtBuscar"
         android:layout_width="300dp"
@@ -60,4 +73,12 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtBuscar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Reciclador2"
+        android:layout_width="341dp"
+        android:layout_height="454dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

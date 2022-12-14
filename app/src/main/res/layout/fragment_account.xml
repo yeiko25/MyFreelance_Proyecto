@@ -141,7 +141,11 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:clickable="false"
+            android:focusable="false"
+            android:textIsSelectable="false"
+            />
 
         <EditText
             android:id="@+id/clave_up"

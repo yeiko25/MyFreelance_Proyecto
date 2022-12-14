@@ -22,16 +22,16 @@ class ServiceDetail : Fragment() {
     private val args by navArgs<ServiceDetailArgs>()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
         _binding = FragmentServiceDetailBinding.inflate(inflater, container, false)
 
-     //   binding.tvTituloDetail.setText(args.service.tituloServicio)
-       // binding.tvDescDetail.setText(args.service.descServicio)
-        // binding.tvPrecioDetail.setText(args.service.precioServicio.toString())
-
+         binding.tvTituloDetail.setText(args.service.tituloServicio)
+         binding.tvDescDetail.setText(args.service.descServicio)
+         binding.tvPrecioDetail.setText(args.service.precioServicio.toString())
 
         binding.btBack.setOnClickListener {
             findNavController().navigate(R.id.action_serviceDetail_to_navigation_search) }
@@ -39,10 +39,15 @@ class ServiceDetail : Fragment() {
         binding.btContactar2.setOnClickListener {
             findNavController().navigate(R.id.action_serviceDetail_to_contactarFragment) }
 
-        binding.btReport.setOnClickListener {  findNavController().navigate(R.id.action_serviceDetail_to_reporteFragment) }
+        binding.btReport.setOnClickListener {
+            findNavController().navigate(R.id.action_serviceDetail_to_reporteFragment) }
 
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
