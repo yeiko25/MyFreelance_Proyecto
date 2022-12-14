@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.proyecto.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -22,6 +26,12 @@
         <action
             android:id="@+id/action_navigation_search_to_serviceDetail2"
             app:destination="@id/serviceDetail" />
+        <argument
+            android:name="service"
+            app:argType="com.example.proyecto.model.Service" />
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
@@ -29,13 +39,18 @@
         android:name="com.example.proyecto.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" >
+
+
+        <action
+            android:id="@+id/action_navigation_account_to_navigation_home"
+            app:destination="@id/navigation_home" />
         <argument android:name="user"
             app:argType="com.example.proyecto.model.User"/>
         <action
             android:id="@+id/action_navigation_account_to_login"
             app:destination="@id/login" />
     </fragment>
-    <activity
+    <fragment
         android:id="@+id/login"
         android:name="com.example.proyecto.Login"
         android:label="activity_login"
@@ -57,5 +72,33 @@
         <action
             android:id="@+id/action_serviceDetail_to_navigation_search"
             app:destination="@id/navigation_search" />
+        <action
+            android:id="@+id/action_serviceDetail_to_contactarFragment"
+            app:destination="@id/contactarFragment" />
+        <action
+            android:id="@+id/action_serviceDetail_to_reporteFragment"
+            app:destination="@id/reporteFragment" />
+
+        <argument android:name="Service"
+            app:argType="com.example.proyecto.model.Service"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/reporteFragment"
+        android:name="com.example.proyecto.ui.home.ReporteFragment"
+        android:label="fragment_reporte"
+        tools:layout="@layout/fragment_reporte" >
+        <action
+            android:id="@+id/action_reporteFragment_to_serviceDetail"
+            app:destination="@id/serviceDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactarFragment"
+        android:name="com.example.proyecto.ui.home.ContactarFragment"
+        android:label="fragment_contactar"
+        tools:layout="@layout/fragment_contactar" >
+        <action
+            android:id="@+id/action_contactarFragment_to_serviceDetail"
+            app:destination="@id/serviceDetail" />
     </fragment>
 </navigation>

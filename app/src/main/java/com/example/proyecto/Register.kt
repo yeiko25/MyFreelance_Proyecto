@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.proyecto.databinding.ActivityRegisterBinding
 import com.example.proyecto.model.User
+import com.example.proyecto.viewmodel.AccountViewModel
 import com.example.proyecto.viewmodel.HomeViewModel
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -22,12 +23,12 @@ class Register : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var userViewModel: HomeViewModel
+    private lateinit var userViewModel: AccountViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        userViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        userViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         FirebaseApp.initializeApp(this)
@@ -79,7 +80,7 @@ class Register : AppCompatActivity() {
 
         } else {
 
-            val user_ = User("",nombre,apellido,email,telefono,n_usuario,direccion,clave)
+            val user_ = User(0,nombre,apellido,email,telefono,n_usuario,direccion,clave)
             userViewModel.saveUser(user_)
 
             auth.createUserWithEmailAndPassword(email, clave).addOnCompleteListener(this) {

@@ -12,41 +12,53 @@ import com.example.proyecto.ui.search.SearchFragmentDirections
 
 
 
-class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.ServicioViewHolder>() {
+class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>() {
+
+
     private var listaServicios = emptyList<Service>()
-    inner class ServicioViewHolder(private  val itemBinding: ServiceRowBinding) : RecyclerView.ViewHolder(itemBinding.root){
 
-        fun dibujar(service:Service){
-            itemBinding.tvTitulo.text = service.nombreServicio
-            itemBinding.tvPrecio.text = service.precioServicio
 
-           /* if(lugar.rutaImagen?.isNotEmpty() ==true){
-                Glide.with(itemBinding.root.context)
-                    .load(lugar.rutaImagen)
-                    .into(itemBinding.imagen)
-            }
-*/
-            itemBinding.vistaFila.setOnClickListener{
-               val accion = SearchFragmentDirections.actionNavigationSearchToServiceDetail2()
+    inner class ServiceViewHolder(private val itemBinding: ServiceRowBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(service: Service) {
+
+            itemBinding.tvTitulo.text = service.tituloServicio
+            itemBinding.tvPrecio.text = service.precioServicio.toString()
+
+
+
+            itemBinding.vistaFila.setOnClickListener {
+                val accion = SearchFragmentDirections.actionNavigationSearchToServiceDetail2(service)
                 itemView.findNavController().navigate(accion)
             }
         }
     }
-    fun setServices(services: List<Service>){
-        this.listaServicios = services
-        notifyDataSetChanged()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
+        val itemBinding =
+            ServiceRowBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false)
+
+        return ServiceViewHolder(itemBinding)
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicioViewHolder {
-        val itemBinding = ServiceRowBinding
-            .inflate(LayoutInflater.from(parent.context)
-                ,parent,false)
-        return ServicioViewHolder(itemBinding)
+
+    override fun onBindViewHolder(holder: ServiceViewHolder, position: Int) {
+
+        val ServicioActual = listaServicios[position]
+
+        holder.bind(ServicioActual)
     }
-    override fun onBindViewHolder(holder: ServicioViewHolder, position: Int) {
-        val service = listaServicios[position]
-        holder.dibujar(service)
-    }
+
     override fun getItemCount(): Int {
         return listaServicios.size
     }
+
+    fun setData(servicios: List<Service>) {
+        this.listaServicios=servicios
+        notifyDataSetChanged()
+    }
+
+
 }

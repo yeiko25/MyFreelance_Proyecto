@@ -8,6 +8,21 @@
     android:background="#0C1020"
     tools:context=".ui.home.ReporteFragment">
 
+    <Button
+        android:id="@+id/bt_back_reporte"
+        android:layout_width="106dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+        android:drawablePadding="-30dp"
+        android:text="@string/atras"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textReporte"
         android:layout_width="wrap_content"

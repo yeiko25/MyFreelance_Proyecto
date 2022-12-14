@@ -27,20 +27,23 @@ class AddServicioFragment : Fragment() {
         _binding = FragmentAddServicioBinding.inflate(inflater, container, false)
 
         binding.btPublicarServicio.setOnClickListener { publicarServicio() }
+
+        binding.btBackAdd.setOnClickListener { findNavController().navigate(R.id.action_addServicioFragment_to_navigation_search) }
+
         return binding.root
 
-        //return inflater.inflate(R.layout.fragment_add_servicio, container, false)
 
 
     }
     private fun publicarServicio(){
+
         val titulo = binding.etTitulo.text.toString().trim()
         val descripcion = binding.etDescripcion.text.toString().trim()
-        val precio = binding.etPrecio.text.toString().trim()
+        val precio = binding.etPrecio.text.toString().trim().toDouble()
         val categoria = binding.etCategoria.text.toString().trim()
 
         if(titulo.isNotEmpty()){
-            val service = Service("", titulo, descripcion, precio, categoria)
+            val service = Service(0, titulo, descripcion, precio, categoria)
             serviceViewModel.saveService(service)
             Toast.makeText(requireContext(), getString(R.string.msg_agregaServicio), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addServicioFragment_to_navigation_search)
@@ -48,5 +51,10 @@ class AddServicioFragment : Fragment() {
         else{
             Toast.makeText(requireContext(), getString(R.string.msg_error), Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

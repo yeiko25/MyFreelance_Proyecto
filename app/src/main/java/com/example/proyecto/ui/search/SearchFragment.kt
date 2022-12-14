@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyecto.R
 import com.example.proyecto.adapter.ServiceAdapter
 import com.example.proyecto.databinding.FragmentSearchBinding
+import com.example.proyecto.model.Service
 import com.example.proyecto.viewmodel.SearchViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -39,13 +41,34 @@ class SearchFragment : Fragment() {
 
         searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
-        searchViewModel.getServices.observe(viewLifecycleOwner) { services ->
-            serviceAdapter.setServices(services)
+        searchViewModel.getService.observe(viewLifecycleOwner) { services ->
+            serviceAdapter.setData(services)
+
+
+
+            //Barra Busqueda
+
+
+            binding.txtBuscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return false
+                }
+
+
+            })
 
         }
 
             return binding.root
         }
+
+
+
+
 
         override fun onDestroyView() {
             super.onDestroyView()

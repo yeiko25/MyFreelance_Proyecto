@@ -1,12 +1,27 @@
 package com.example.proyecto.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.proyecto.data.UserDataBase
+import com.example.proyecto.model.User
+import com.example.proyecto.repository.UserRepository
+import kotlinx.coroutines.launch
 
-class AccountViewModel : ViewModel() {
+class AccountViewModel(application: Application) : AndroidViewModel(application) {
+    val getUser: LiveData<List<User>>
+    private val repository: UserRepository
 
-    private val _text = MutableLiveData<String>().apply {
+    init {
+        val userDao = UserDataBase.getDatabase(application).userDao()
+        repository = UserRepository(userDao)
+        getUser = repository.getUsers
     }
-    val text: LiveData<String> = _text
+
+    fun saveUser(user: User) {
+        viewModelScope.launch { repository.saveUser(user) }
+    }
+
+    fun deleteService(user: User) {
+        viewModelScope.launch { repository.deleteUser(user)}
+    }
 }
