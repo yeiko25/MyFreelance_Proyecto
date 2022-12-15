@@ -63,7 +63,7 @@ class AccountFragment : Fragment() {
 
         binding.btLogoff.setOnClickListener {
           //  Firebase.auth.signOut()
-           // findNavController().navigate(R.id.action_navigation_account_to_login)
+          // findNavController().navigate(R.id.action_navigation_account_to_login)
             FirebaseAuth.getInstance().signOut()
         }
 
